@@ -1,6 +1,29 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 
 function About() {
+
+  const [rightImage, setRightImage] = useState("https://themewagon.github.io/BabyCare/img/about.jpg"); // default
+
+  useEffect(() => {
+    async function updateRightImage() {
+      try {
+        const response = await fetch('https://babycare-admin-backend-ulfg.onrender.com/about');
+        
+        const json = await response.json();
+
+        if (json.success && json.data && json.data.imageUrl) {
+          setRightImage(json.data.imageUrl); 
+        }
+      } catch (error) {
+        console.log("Error fetching right image:", error);
+      }
+    }
+
+    updateRightImage()
+    }, [])
+
+    
+
   return (
     <div className="w-full h-screen overflow-hidden relative flex items-center">
   {/* Background Image with opacity */}
@@ -13,7 +36,7 @@ function About() {
   {/* Right image */}
   <div className=' ml-60 scale-200'>
   <div className="w-70 h-50 relative z-10 overflow-hidden rounded-full">
-    <img src="https://themewagon.github.io/BabyCare/img/about.jpg" alt="" className="w-full h-full object-cover"/>
+    <img src={rightImage} alt="" className="w-full h-full object-cover"/>
   </div>
   </div>
 
