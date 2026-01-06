@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 function Programs() {
 
-  const [heading, setHeading] = useState("");
-  const [subHeading, setSubHeading] = useState("");
+  const [heading, setHeading] = useState("Our Programs");
+  const [subHeading, setSubHeading] = useState("We Offer An Exclusive Program For Kids");
   const [programs, setPrograms] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ function Programs() {
         { cache: "no-store" }
       );
       const data = await res.json();
+      console.log(data);
 
       if (data.success) {
         setHeading(data.data.heading);
@@ -70,7 +71,7 @@ function Programs() {
             {/* program image */}
             <div className="overflow-hidden rounded-t-lg">
               <img
-                src={items.image}
+                src={items.imageUrl || "https://themewagon.github.io/BabyCare/img/program-1.jpg"}
                 alt=""
                 className="w-full h-48 object-cover transform hover:scale-110 transition duration-500"
               />
@@ -79,24 +80,24 @@ function Programs() {
             {/* text */}
             <div className="p-6">
               <h1 className="text-[#393D72] text-xl font-semibold mb-2">
-                {items.title}
+                {items.title || "English For Today"}
               </h1>
-              <p className="text-gray-700 mb-4">{items.desc}</p>
+              <p className="text-gray-700 mb-4">{items.desc || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur,"}</p>
               <hr className="mb-4" />
 
               {/* teacher info */}
               <div className="flex items-center mb-4">
                 <div className="rounded-full w-10 h-10 overflow-hidden mr-3">
-                  <img src={items.teacherImg} alt="" className="w-full h-full object-cover" />
+                  <img src={items.teacherImg || "https://themewagon.github.io/BabyCare/img/program-teacher.jpg"} alt="" className="w-full h-full object-cover" />
                 </div>
-                <span className="text-gray-700 font-medium">{items.teacher_name}</span>
+                <span className="text-gray-700 font-medium">{items.teacher_name || "Mary Mordern"}</span>
               </div>
 
               {/* pink strip */}
               <div className="bg-[#FF4880] text-white gap-5 px-3 py-2 flex justify-between rounded-md">
-                <h3>{items.seats}</h3>
-                <h3>{items.lessons}</h3>
-                <h3>{items.hours}</h3>
+                <h3>{items.seats || "30"}</h3>
+                <h3>{items.lessons || "10"}</h3>
+                <h3>{items.hours || "10"}</h3>
               </div>
             </div>
           </div>
