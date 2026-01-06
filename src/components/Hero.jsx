@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 
 function Hero() {
+  
 
   const [heading, setHeading] = useState("About Us");
   const [subHeading, setSubHeading] = useState(
@@ -71,5 +73,6 @@ function Hero() {
     </div>
   );
 }
+import { useState } from "react";
 
 export default Hero;
