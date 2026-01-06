@@ -73,6 +73,5 @@ function Hero() {
     </div>
   );
 }
-import { useState } from "react";
 
 export default Hero;
