@@ -20,8 +20,8 @@ function About() {
     async function fetchAboutData() {
       try {
         const response = await fetch(
-          "https://babycare-admin-backend-ulfg.onrender.com/about"
-        );
+          "https://babycare-admin-backend-ulfg.onrender.com/about", {cache: "no-store"}
+        )
         const json = await response.json();
 
         if (json.success && json.data) {
