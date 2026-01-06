@@ -17,12 +17,14 @@ function Programs() {
         { cache: "no-store" }
       );
       const data = await res.json();
-      console.log(data);
+console.log("Fetched data:", data);
 
       if (data.success) {
         setHeading(data.data.heading);
         setSubHeading(data.data.subHeading);
-        setPrograms(data.data.programs);
+        setPrograms(data.data.programs || []);  // ya data.data
+console.log("Programs set:", data.data.programs);
+
       }
     } catch (err) {
       console.error("Failed to load programs", err);
@@ -63,7 +65,10 @@ function Programs() {
 
       {/* boxes */}
       <div className="flex flex-wrap justify-center gap-6">
-        {programs.map((items, index) => (
+        {programs.map((items, index) => {
+          console.log(items);
+          return (
+          
           <div
             key={index}
             className="w-80 bg-white border border-[#F4467B] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition"
@@ -101,7 +106,8 @@ function Programs() {
               </div>
             </div>
           </div>
-        ))}
+          )
+          })}
       </div>
 
 
