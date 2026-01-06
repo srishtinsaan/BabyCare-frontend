@@ -1,23 +1,53 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 
 function Programs() {
 
-  const content = [
-    {title : "English for today",  desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi eligendi accusamus.",
-      img : "https://themewagon.github.io/BabyCare/img/program-1.jpg",
-      teacherImg : "https://themewagon.github.io/BabyCare/img/program-teacher.jpg"
-    },
-    {title : "Graphics Arts", desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi eligendi accusamus.",
-      img : "https://themewagon.github.io/BabyCare/img/program-2.jpg",
-      teacherImg : "https://themewagon.github.io/BabyCare/img/program-teacher.jpg"
-    },
-    {title : "General Science",desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi eligendi accusamus.",
-      img : "https://themewagon.github.io/BabyCare/img/program-3.jpg",
-            teacherImg : "https://themewagon.github.io/BabyCare/img/program-teacher.jpg"
-    },
+  const [heading, setHeading] = useState("");
+  const [subHeading, setSubHeading] = useState("");
+  const [programs, setPrograms] = useState([]);
+
+  useEffect(() => {
+  async function fetchPrograms() {
+    try {
+      const res = await fetch(
+        "https://babycare-admin-backend-ulfg.onrender.com/programs",
+        { cache: "no-store" }
+      );
+      const data = await res.json();
+
+      if (data.success) {
+        setHeading(data.data.heading);
+        setSubHeading(data.data.subHeading);
+        setPrograms(data.data.programs);
+      }
+    } catch (err) {
+      console.error("Failed to load programs", err);
+    }
+  }
+
+  fetchPrograms();
+}, []);
+
+
+  // const content = [
+  //   {title : "English for today",  desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi eligendi accusamus.",
+  //     img : "https://themewagon.github.io/BabyCare/img/program-1.jpg",
+  //     teacherImg : "https://themewagon.github.io/BabyCare/img/program-teacher.jpg"
+  //   },
+  //   {title : "Graphics Arts", desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi eligendi accusamus.",
+  //     img : "https://themewagon.github.io/BabyCare/img/program-2.jpg",
+  //     teacherImg : "https://themewagon.github.io/BabyCare/img/program-teacher.jpg"
+  //   },
+  //   {title : "General Science",desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi eligendi accusamus.",
+  //     img : "https://themewagon.github.io/BabyCare/img/program-3.jpg",
+  //           teacherImg : "https://themewagon.github.io/BabyCare/img/program-teacher.jpg"
+  //   },
     
-  ]
+  //   ]
+    
   
   return (
     <div  
@@ -25,14 +55,14 @@ function Programs() {
 
       {/* title */}
       <h2 style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 500 }} 
-      className=' mt-20 flex justify-center text-3xl text-[#F4467B]' >Our Programs</h2>
+      className=' mt-20 flex justify-center text-3xl text-[#F4467B]' >{heading}</h2>
       <h1 className='text-center text-6xl text-[#393D72] mt-5 mb-10' 
-      style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 700 }} >We Offer An Exclusive <br /> Program For Kids</h1>
+      style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 700 }} >{subHeading}</h1>
 
 
       {/* boxes */}
       <div className="flex flex-wrap justify-center gap-6">
-        {content.map((items, index) => (
+        {programs.map((items, index) => (
           <div
             key={index}
             className="w-80 bg-white border border-[#F4467B] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition"
@@ -40,7 +70,7 @@ function Programs() {
             {/* program image */}
             <div className="overflow-hidden rounded-t-lg">
               <img
-                src={items.img}
+                src={items.image}
                 alt=""
                 className="w-full h-48 object-cover transform hover:scale-110 transition duration-500"
               />
@@ -59,14 +89,14 @@ function Programs() {
                 <div className="rounded-full w-10 h-10 overflow-hidden mr-3">
                   <img src={items.teacherImg} alt="" className="w-full h-full object-cover" />
                 </div>
-                <span className="text-gray-700 font-medium">Teacher</span>
+                <span className="text-gray-700 font-medium">{items.teacher_name}</span>
               </div>
 
               {/* pink strip */}
               <div className="bg-[#FF4880] text-white gap-5 px-3 py-2 flex justify-between rounded-md">
-                <h3>30 seats</h3>
-                <h3>11 lessons</h3>
-                <h3>60 hours</h3>
+                <h3>{items.seats}</h3>
+                <h3>{items.lessons}</h3>
+                <h3>{items.hours}</h3>
               </div>
             </div>
           </div>
