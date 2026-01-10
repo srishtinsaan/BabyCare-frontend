@@ -84,10 +84,10 @@ console.log("Programs set:", data.data.programs);
 
             {/* text */}
             <div className="p-6">
-              <h1 className="text-[#393D72] text-xl font-semibold mb-2">
+              <h1 className="text-[#393D72] text-xl font-semibold mb-2 whitespace-pre-wrap break-words">
                 {items.title || "English For Today"}
               </h1>
-              <p className="text-gray-700 mb-4">{items.desc || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur,"}</p>
+              <p className="text-gray-700 whitespace-pre-wrap break-words mb-4">{items.desc || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus consectetur,"}</p>
               <hr className="mb-4" />
 
               {/* teacher info */}
