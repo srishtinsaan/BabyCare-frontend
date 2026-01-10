@@ -77,7 +77,7 @@ console.log("Events set:", data.data.event);
               <h1 className="text-[#393D72] text-xl font-semibold mb-2">
                 {items.title}
               </h1>
-              <p className="text-gray-700 mb-4">{items.description}</p>
+              <p className="text-gray-700 mb-4 whitespace-pre-wrap break-words">{items.description}</p>
             </div>
           </div>
         ))}
