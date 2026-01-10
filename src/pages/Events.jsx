@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
 function Events() {
 
   const [heading, setHeading] = useState("Our Events");
@@ -28,6 +31,7 @@ console.log("Events set:", data.data.event);
 
   fetchEvents();
 }, []);
+
 
   return (
     <div  
