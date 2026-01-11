@@ -33,7 +33,7 @@ console.log("services set:", data.data.service);
   
   return (
     <div  
-    className='h-screen flex-col justify-center bg-gradient-to-b from-white to-pink-200 '>
+    className='min-h-screen flex-col justify-center bg-gradient-to-b from-white to-pink-200 '>
 
       {/* title */}
       <h2 style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 500 }} 
@@ -42,7 +42,7 @@ console.log("services set:", data.data.service);
       style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 700 }} >{subHeading}</h1>
 
       {/* boxes */}
-      <div className='flex justify-center '>
+      <div className='flex justify-center'>
 {services.map((items, index) => (
   
   <div key={index} className='mt-9 w-50 border bg-white border-[#F4467B] rounded-lg m-4 overflow-hidden rounded-t-lg '>
