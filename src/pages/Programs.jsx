@@ -100,9 +100,9 @@ console.log("Programs set:", data.data.programs);
 
               {/* pink strip */}
               <div className="bg-[#FF4880] text-white gap-5 px-3 py-2 flex justify-between rounded-md">
-                <h3>{items.seats || "30"}</h3>
-                <h3>{items.lessons || "10"}</h3>
-                <h3>{items.hours || "10"}</h3>
+                <h3>{items.seats || "30"} seats</h3>
+                <h3>{items.lessons || "10"} lessons</h3>
+                <h3>{items.hours || "10"} hours</h3>
               </div>
             </div>
           </div>
