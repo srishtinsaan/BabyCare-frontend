@@ -86,8 +86,8 @@ console.log("testimonials set:", data.data.testimonial);
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h1 className="text-[#F4467B] text-xl font-semibold mb-2">{items.name}</h1>
-                <p className="text-gray-700 mb-2">{items.designation}</p>
+                <h1 className="text-[#F4467B] text-xl font-semibold mb-2">{items.name || "Client Name"}</h1>
+                <p className="text-gray-700 mb-2">{items.designation || "Profession"}</p>
                 {/* <p className="text-gray-700 text-sm">{items.testimonial}</p> */}
               </div>
             </div>
