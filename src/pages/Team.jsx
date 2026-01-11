@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 
 
@@ -57,7 +56,7 @@ console.log("teams set:", data.data.team);
              {/* name */}
             <h1 className="text-[#F4467B] text-xl font-semibold mb-2">{items.name}</h1>
 
-            {/* description */}
+            {/* designation */}
             <p className="text-gray-700 mb-4 text-center">{items.designation}</p>
 
             

@@ -9,10 +9,10 @@ function Navbar() {
     { name: "Services", path: "/services" },
     { name: "Programs", path: "/programs" },
     { name: "Events", path: "/events" },
-    { name: "Pages", path: "/pages", submenu: [
-        { name: "Our Blog", path: "/pages/blogs" },
-        { name: "Our Team", path: "/pages/pricing" },
-        { name: "Testimonial", path: "/pages/faq" },
+    { name: "Pages", path: "/", submenu: [
+        { name: "Our Blog", path: "/blogs" },
+        { name: "Our Team", path: "/teams" },
+        { name: "Testimonial", path: "/testimonials" },
       ] },
     { name: "Contact", path: "/contact" },
   ];
