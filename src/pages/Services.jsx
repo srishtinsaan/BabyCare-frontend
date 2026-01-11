@@ -47,7 +47,7 @@ console.log("services set:", data.data.service);
   
   <div key={index} className='mt-9 w-50 border bg-white border-[#F4467B] rounded-lg m-4 overflow-hidden rounded-t-lg '>
     <img
-      src={items.imageUrl}
+      src={items.imageUrl || "https://themewagon.github.io/BabyCare/img/program-3.jpg"}
       className="w-full h-30 object-cover transform hover:scale-110 transition duration-500"
     />
     <h1 className='text-[#393D72] text-xl font-semibold pt-5 px-5 py-5 whitespace-pre-wrap break-words '>{items.title}</h1>
