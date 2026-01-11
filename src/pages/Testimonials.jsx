@@ -88,7 +88,7 @@ console.log("testimonials set:", data.data.testimonial);
                 </div>
                 <h1 className="text-[#F4467B] text-xl font-semibold mb-2">{items.name || "Client Name"}</h1>
                 <p className="text-gray-700 mb-2">{items.designation || "Profession"}</p>
-                {/* <p className="text-gray-700 text-sm">{items.testimonial}</p> */}
+                <p className="text-gray-700 text-sm">{items.description || "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla fugit fugiat animi."}</p>
               </div>
             </div>
           ))}
@@ -111,3 +111,5 @@ console.log("testimonials set:", data.data.testimonial);
 }
 
 export default Testimonials;
+
+
