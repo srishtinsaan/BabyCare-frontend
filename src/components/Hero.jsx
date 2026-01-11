@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 function Hero() {
   
 
-  const [heading, setHeading] = useState("About Us");
+  const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState(
-    "We Learn Smart Way To Build Bright Future For Your Children"
-  );
+    ""
+  )
   const [bgImage, setBgImage] = useState(
     "https://themewagon.github.io/BabyCare/img/hero-img.jpg"
   ); // default
