@@ -50,7 +50,7 @@ console.log("teams set:", data.data.team);
             
             {/* image */}
             <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
-              <img src={items.imageUrl} alt={items.name} className="w-full h-full object-cover"/>
+              <img src={items.imageUrl || "https://themewagon.github.io/BabyCare/img/team-2.jpg"} alt={items.name} className="w-full h-full object-cover"/>
             </div>
 
              {/* name */}

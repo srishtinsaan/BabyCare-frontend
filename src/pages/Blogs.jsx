@@ -60,7 +60,7 @@ console.log("blogs set:", data.data.blog);
             {/* program image */}
             <div className="overflow-hidden rounded-t-lg">
               <img
-                src={items.imgUrl}
+                src={items.imgUrl || "https://themewagon.github.io/BabyCare/img/program-2.jpg"}
                 alt=""
                 className="w-full h-48 object-cover transform hover:scale-110 transition duration-500"
               />
